@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Sprites/SpaceGame/BombA.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "shine"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 1, 0 ]
+}
+
+[node name="Bomb" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1, 1.01404 )
+texture = ExtResource( 1 )
+flip_h = true
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "shine"
+anims/shine = SubResource( 1 )
