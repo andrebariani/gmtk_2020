@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/FastEnemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=4]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
+enemy = ExtResource( 4 )
+fast_enemy = ExtResource( 3 )
 
 [node name="Background" type="ColorRect" parent="."]
 margin_right = 807.0
@@ -15,3 +19,5 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 397.328, 319.972 )
+[connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]

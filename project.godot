@@ -16,11 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="gmtk_2020"
+run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=800
+window/size/height=1200
 
 [layer_names]
 
