@@ -1,6 +1,6 @@
 extends Node2D
 
-var buttons = ["T", "F", "G", "H"]
+var buttons = ["F", "G", "H", "J",]
 
 func set_current_button(current):
 	for button in buttons:

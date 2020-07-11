@@ -10,6 +10,8 @@ var moving = false
 
 var controls = {KEY_F:-1, KEY_G:-1, KEY_H:-1, KEY_J:-1}
 
+var inv_frames = 0
+
 var explosions = 3
 
 signal damaged
@@ -36,6 +38,9 @@ func _process(delta):
 	
 	moving = true
 	self.position.y += move_speed*delta*distance
+	
+	if inv_frames > 0:
+		inv_frames -= delta
 
 
 func receive_input(key, action):
@@ -61,16 +66,18 @@ func _input(event):
 				3: # RIGHT
 					shoot(Vector2(1, 0))
 					self.rotation_degrees = 180
-				4:
+				4: # SHOOT UP-RIGHT
 					shoot(Vector2(0, -1))
 					shoot(Vector2(0, 1))
-				5:
+				5: # EXPLOSION
 					explosion()
 
 
 func damaged():
-	$Ship.animate("blink")
-	emit_signal("damaged")
+	if inv_frames <= 0:
+		$Ship.animate("blink")
+		emit_signal("damaged")
+		inv_frames = 2
 
 
 func gotten_fuel():
