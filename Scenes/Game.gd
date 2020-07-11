@@ -52,7 +52,7 @@ func spawn_enemies():
 	for _i in range(randi() % 2):
 		spawn_enemy(star)
 	
-	for _i in range(max(0, (randi() % 6) - 4) ):
+	for _i in range(max(0, (randi() % 15) - 13) ):
 		spawn_enemy(fuel)
 
 
