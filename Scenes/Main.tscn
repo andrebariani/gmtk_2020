@@ -12,52 +12,60 @@ script = ExtResource( 4 )
 position = Vector2( 31.5531, 8.60538 )
 scale = Vector2( 0.8, 0.8 )
 
-[node name="Slots" type="Node2D" parent="."]
-position = Vector2( 352.454, 511.059 )
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -68.0
+margin_top = 491.0
+margin_right = 778.0
+margin_bottom = 897.0
+mouse_filter = 2
+color = Color( 0.0784314, 0.0745098, 0.0745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Up" parent="Slots" instance=ExtResource( 3 )]
-position = Vector2( -277.508, 75.6161 )
+[node name="Up" parent="." instance=ExtResource( 3 )]
+position = Vector2( 72.8927, 584.622 )
 
-[node name="Down" parent="Slots" instance=ExtResource( 3 )]
-position = Vector2( -168.605, 75.5186 )
+[node name="Down" parent="." instance=ExtResource( 3 )]
+position = Vector2( 183.849, 586.578 )
 action = 1
 
-[node name="Left" parent="Slots" instance=ExtResource( 3 )]
-position = Vector2( -56.7697, 74.8489 )
+[node name="Left" parent="." instance=ExtResource( 3 )]
+position = Vector2( 295.684, 585.908 )
 action = 2
 
-[node name="Right" parent="Slots" instance=ExtResource( 3 )]
-position = Vector2( 56.9584, 73.1139 )
+[node name="Right" parent="." instance=ExtResource( 3 )]
+position = Vector2( 409.412, 584.173 )
 action = 3
 
-[node name="Bullet" parent="Slots" instance=ExtResource( 3 )]
-position = Vector2( 167.338, 72.3788 )
+[node name="Bullet" parent="." instance=ExtResource( 3 )]
+position = Vector2( 519.792, 583.438 )
 action = 4
 
-[node name="Explosion" parent="Slots" instance=ExtResource( 3 )]
-position = Vector2( 272.615, 72.9086 )
+[node name="Explosion" parent="." instance=ExtResource( 3 )]
+position = Vector2( 625.069, 583.968 )
 action = 5
 
-[node name="Buttons" type="Node2D" parent="."]
-position = Vector2( 319.727, 667.146 )
+[node name="F" parent="." instance=ExtResource( 2 )]
+position = Vector2( 180.975, 726.839 )
+text = "F"
+key = 70
 
-[node name="G" parent="Buttons" instance=ExtResource( 2 )]
-position = Vector2( -131.865, 67.6931 )
+[node name="G" parent="." instance=ExtResource( 2 )]
+position = Vector2( 290.862, 728.839 )
 key = 71
 
-[node name="H" parent="Buttons" instance=ExtResource( 2 )]
-position = Vector2( -19.954, 67.6931 )
+[node name="H" parent="." instance=ExtResource( 2 )]
+position = Vector2( 402.773, 728.839 )
+text = "H"
 key = 72
 
-[node name="J" parent="Buttons" instance=ExtResource( 2 )]
-position = Vector2( 81.985, 67.6931 )
+[node name="J" parent="." instance=ExtResource( 2 )]
+position = Vector2( 504.712, 728.839 )
+text = "J"
 key = 74
-
-[node name="K" parent="Buttons" instance=ExtResource( 2 )]
-position = Vector2( 187.248, 67.6931 )
-key = 75
 [connection signal="player_damaged" from="Game" to="." method="_on_Game_player_damaged"]
-[connection signal="assigned" from="Buttons/G" to="." method="send_input_system"]
-[connection signal="assigned" from="Buttons/H" to="." method="send_input_system"]
-[connection signal="assigned" from="Buttons/J" to="." method="send_input_system"]
-[connection signal="assigned" from="Buttons/K" to="." method="send_input_system"]
+[connection signal="assigned" from="F" to="." method="send_input_system"]
+[connection signal="assigned" from="G" to="." method="send_input_system"]
+[connection signal="assigned" from="H" to="." method="send_input_system"]
+[connection signal="assigned" from="J" to="." method="send_input_system"]
