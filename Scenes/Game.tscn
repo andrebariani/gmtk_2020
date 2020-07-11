@@ -106,8 +106,8 @@ __meta__ = {
 }
 
 [node name="Bombs" type="Control" parent="."]
-margin_right = 232.0
-margin_bottom = 89.0
+margin_right = 159.0
+margin_bottom = 72.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -124,10 +124,10 @@ __meta__ = {
 }
 
 [node name="Bomb2" type="TextureRect" parent="Bombs"]
-margin_left = 49.4508
-margin_top = 16.7351
-margin_right = 55.4508
-margin_bottom = 22.7351
+margin_left = 58.7166
+margin_top = 16.2474
+margin_right = 68.7166
+margin_bottom = 26.2474
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 7 )
 __meta__ = {
@@ -135,12 +135,15 @@ __meta__ = {
 }
 
 [node name="Bomb3" type="TextureRect" parent="Bombs"]
-margin_left = 85.6366
-margin_top = 16.7351
-margin_right = 91.6366
-margin_bottom = 22.7351
+margin_left = 106.242
+margin_top = 15.7598
+margin_right = 116.242
+margin_bottom = 25.7598
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
 [connection signal="exploded" from="Player" to="." method="_on_Player_exploded"]
 [connection signal="gotten_fuel" from="Player" to="." method="_on_Player_gotten_fuel"]

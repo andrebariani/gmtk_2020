@@ -33,10 +33,12 @@ func _process(delta):
 	if shoot_clock > 0:
 		shoot_clock -= delta
 	
-	var distance = target_y - self.position.y
+	var distance = target_y
+	
 	if distance > 2:
 		distance = 1
 	elif distance < -2:
+		print_debug(distance)
 		distance = -1
 	else:
 		if moving:
@@ -46,7 +48,11 @@ func _process(delta):
 		return
 	
 	moving = true
-	self.position.y += move_speed*delta*distance
+	distance = move_speed*delta*distance
+	self.position.y += (distance + int(self.position.y >= 610)*(-600) + 
+		int(self.position.y <= -10)*600)
+	target_y -= distance
+	
 
 
 func receive_input(key, action):
@@ -61,14 +67,14 @@ func _input(event):
 		var input = controls[event.scancode]
 		match(input):
 			0: # UP
-				dash(-1)
-				self.rotation_degrees = 90
 				if !moving:
+					dash(-1)
+					self.rotation_degrees = 90
 					$Ship.animate("move")
 			1: # DOWN
-				dash(1)
-				self.rotation_degrees = 270
 				if !moving:
+					dash(1)
+					self.rotation_degrees = 270
 					$Ship.animate("move")
 			2: # LEFT
 				self.rotation_degrees = 0
@@ -108,15 +114,15 @@ func score():
 
 
 func dash(direction):
-	target_y = target_y + int(!moving)*(direction * dash_distance)
+	target_y = (direction * dash_distance)
 
 
 func shoot(direction):
 	var _new = bullet.instance()
 	get_parent().add_child(_new)
 	get_parent().move_child(_new, get_parent().get_child_count()-3)
-		
-	_new.global_position = $Shoot.global_position
+	
+	_new.global_position = int(direction.x!=0)*$Shoot.global_position + int(direction.x==0)*self.global_position
 	_new.set_direction(direction)
 
 
