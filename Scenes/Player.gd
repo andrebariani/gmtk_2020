@@ -32,8 +32,9 @@ func _process(delta):
 	elif distance < -2:
 		distance = -1
 	else:
-		if moving == true:
+		if moving:
 			moving = false
+		else:
 			$Ship.animate("idle")
 		return
 	
@@ -58,18 +59,20 @@ func _input(event):
 			0: # UP
 				dash(-1)
 				self.rotation_degrees = 90
-				$Ship.animate("move")
+				if !moving:
+					$Ship.animate("move")
 			1: # DOWN
 				dash(1)
 				self.rotation_degrees = 270
-				$Ship.animate("move")
+				if !moving:
+					$Ship.animate("move")
 			2: # LEFT
 				shoot(Vector2(-1, 0))
 				self.rotation_degrees = 0
 			3: # RIGHT
 				shoot(Vector2(1, 0))
 				self.rotation_degrees = 180
-			4: # SHOOT UP-RIGHT
+			4: # SHOOT UP+DOWN
 				shoot(Vector2(0, -1))
 				shoot(Vector2(0, 1))
 			5: # EXPLOSION

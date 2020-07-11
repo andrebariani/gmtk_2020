@@ -2,7 +2,7 @@
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Gameboy/Button.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Fonts/Early GameBoy.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.0145, 32.0225 )
@@ -23,10 +23,10 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = -13.9585
-margin_top = -15.7506
-margin_right = 18.0415
-margin_bottom = 16.2494
+margin_left = -15.4679
+margin_top = -21.7882
+margin_right = 16.5321
+margin_bottom = 18.2118
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "G"

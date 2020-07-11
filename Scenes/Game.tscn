@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemy/FastEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Enemy/Enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/Fonts/Early GameBoy.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Scenes/Item/Star.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Sprites/SpaceGame/Bomb.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/SpaceGame/Star.png" type="Texture" id=8]
@@ -83,9 +83,9 @@ shape = SubResource( 2 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 653.425
-margin_top = 18.5827
+margin_top = 12.751
 margin_right = 749.425
-margin_bottom = 66.5827
+margin_bottom = 72.751
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.878431, 0.972549, 0.815686, 1 )
 text = "0"
@@ -96,9 +96,9 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="Label"]
 margin_left = 86.4166
-margin_top = -17.067
+margin_top = -10.0689
 margin_right = 96.4166
-margin_bottom = -12.067
+margin_bottom = -5.0689
 rect_scale = Vector2( 14, 14 )
 texture = ExtResource( 8 )
 __meta__ = {

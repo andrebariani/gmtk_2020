@@ -40,9 +40,9 @@ func _input(event):
 
 
 func set_option(_new):
-	options[option].set("custom_colors/font_color", Color("e0f8d0"))
-	option = _new
 	options[option].set("custom_colors/font_color", Color("346856"))
+	option = _new
+	options[option].set("custom_colors/font_color", Color("081820"))
 
 
 func play():
