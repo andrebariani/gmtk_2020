@@ -11,12 +11,5 @@ func set_direction(_direction):
 	direction = _direction
 
 
-func _on_Area2D_area_entered(area):
-	if area.has_method("score"):
-		area.score()
-	
-	destroy()
-
-
 func destroy():
 	queue_free()

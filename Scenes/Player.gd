@@ -15,6 +15,7 @@ var explosions = 3
 signal damaged
 signal scored
 signal exploded
+signal gotten_fuel
 signal dash_distance
 
 func _ready():
@@ -70,6 +71,13 @@ func _input(event):
 func damaged():
 	$Ship.animate("blink")
 	emit_signal("damaged")
+
+
+func gotten_fuel():
+	if explosions >= 3:
+		return
+	emit_signal("gotten_fuel", explosions)
+	explosions += 1
 
 
 func score():

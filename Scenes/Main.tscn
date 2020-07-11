@@ -156,26 +156,26 @@ action = 4
 position = Vector2( 625.069, 583.968 )
 action = 5
 
+[node name="T" parent="." instance=ExtResource( 2 )]
+position = Vector2( 166.382, 729.839 )
+text = "T"
+key = 84
+
 [node name="F" parent="." instance=ExtResource( 2 )]
-position = Vector2( 180.975, 726.839 )
+position = Vector2( 411.507, 728.884 )
 text = "F"
 key = 70
 
 [node name="G" parent="." instance=ExtResource( 2 )]
-position = Vector2( 290.862, 728.839 )
+position = Vector2( 288.928, 730.597 )
 key = 71
 
 [node name="H" parent="." instance=ExtResource( 2 )]
-position = Vector2( 402.773, 728.839 )
+position = Vector2( 538.434, 727.673 )
 text = "H"
 key = 72
-
-[node name="J" parent="." instance=ExtResource( 2 )]
-position = Vector2( 504.712, 728.839 )
-text = "J"
-key = 74
 [connection signal="player_damaged" from="Game" to="." method="_on_Game_player_damaged"]
+[connection signal="assigned" from="T" to="." method="send_input_system"]
 [connection signal="assigned" from="F" to="." method="send_input_system"]
 [connection signal="assigned" from="G" to="." method="send_input_system"]
 [connection signal="assigned" from="H" to="." method="send_input_system"]
-[connection signal="assigned" from="J" to="." method="send_input_system"]

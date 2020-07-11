@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemy/FastEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Enemy/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Scenes/Star.tscn" type="PackedScene" id=6]
-[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Item/Star.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Sprites/SpaceGame/Bomb.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/SpaceGame/Star.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Item/Fuel.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "explosion"
@@ -40,6 +41,7 @@ script = ExtResource( 1 )
 enemy = ExtResource( 4 )
 fast_enemy = ExtResource( 3 )
 star = ExtResource( 6 )
+fuel = ExtResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/explosion = SubResource( 1 )
@@ -103,33 +105,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Rockets" type="Control" parent="."]
+[node name="Bombs" type="Control" parent="."]
 margin_right = 232.0
 margin_bottom = 89.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Rocket" type="TextureRect" parent="Rockets"]
-margin_left = 12.8878
-margin_top = 15.7517
-margin_right = 52.8878
-margin_bottom = 55.7517
+[node name="Bomb" type="TextureRect" parent="Bombs"]
+margin_left = 13.0
+margin_top = 16.0
+margin_right = 19.0
+margin_bottom = 22.0
+rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Rocket2" type="TextureRect" parent="Rockets"]
-margin_left = 84.4666
-margin_top = 15.7517
-margin_right = 148.467
-margin_bottom = 79.7517
+[node name="Bomb2" type="TextureRect" parent="Bombs"]
+margin_left = 49.4508
+margin_top = 16.7351
+margin_right = 55.4508
+margin_bottom = 22.7351
+rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Rocket3" type="TextureRect" parent="Rockets"]
-margin_left = 153.94
-margin_top = 15.7517
-margin_right = 217.94
-margin_bottom = 79.7517
+[node name="Bomb3" type="TextureRect" parent="Bombs"]
+margin_left = 85.6366
+margin_top = 16.7351
+margin_right = 91.6366
+margin_bottom = 22.7351
+rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 7 )
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
 [connection signal="exploded" from="Player" to="." method="_on_Player_exploded"]
+[connection signal="gotten_fuel" from="Player" to="." method="_on_Player_gotten_fuel"]
 [connection signal="scored" from="Player" to="." method="_on_Player_scored"]
