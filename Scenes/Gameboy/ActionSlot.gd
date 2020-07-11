@@ -1,6 +1,7 @@
 extends Area2D
 
 var button = null
+var mouseover = false
 
 export var action = 0
 
@@ -8,19 +9,21 @@ func get_action():
 	return action
 
 
-func _on_ActionSlot_area_entered(area):
-	if area.has_method("set_slot") and button == null:
-		area.set_slot(self)
-
-
-func _on_ActionSlot_area_exited(area):
-	if area.has_method("clear_slot") and button == area:
-		area.clear_slot(self)
-
-
 func get_button():
 	return button
 
 
+func get_mouseover():
+	return mouseover
+
+
 func set_button(_new):
 	button = _new
+
+
+func _on_ActionSlot_mouse_entered():
+	mouseover = true
+
+
+func _on_ActionSlot_mouse_exited():
+	mouseover = false

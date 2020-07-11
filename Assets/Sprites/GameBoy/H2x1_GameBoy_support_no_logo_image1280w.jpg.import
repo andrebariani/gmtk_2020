@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/H2x1_GameBoy_support_no_logo_image1280w.jpg-6743ebe0bb37613872c2dc6d6f3cc207.stex"
+path="res://.import/H2x1_GameBoy_support_no_logo_image1280w.jpg-50070bd03d6a666f7b0cd85228158caa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/GameBoy/H2x1_GameBoy_support_no_logo_image1280w.jpg"
-dest_files=[ "res://.import/H2x1_GameBoy_support_no_logo_image1280w.jpg-6743ebe0bb37613872c2dc6d6f3cc207.stex" ]
+source_file="res://Assets/Sprites/GameBoy/H2x1_GameBoy_support_no_logo_image1280w.jpg"
+dest_files=[ "res://.import/H2x1_GameBoy_support_no_logo_image1280w.jpg-50070bd03d6a666f7b0cd85228158caa.stex" ]
 
 [params]
 

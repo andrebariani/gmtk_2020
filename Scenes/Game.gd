@@ -16,6 +16,7 @@ var wave_cooldown = 4
 var wave_threshold = 2
 
 var clock = 0
+var paused = true
 
 onready var player = $Player
 
@@ -26,7 +27,15 @@ func _ready():
 	randomize()
 
 
+func start():
+	paused = false
+	$Player.paused = false
+
+
 func _process(delta):
+	if paused:
+		return
+	
 	clock += delta
 	if clock > wave_cooldown:
 		wave += 1

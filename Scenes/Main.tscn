@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Gameboy/Button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Gameboy/ActionSlot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Scenes/GameBoy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Fonts/AldotheApache.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Scenes/Menu.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "out_of_control"
@@ -38,22 +41,33 @@ tracks/1/keys = {
 size = 64
 font_data = ExtResource( 5 )
 
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 7 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/out_of_control = SubResource( 1 )
 
+[node name="GameBoy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 360, 384 )
+
 [node name="Game" parent="." instance=ExtResource( 1 )]
-position = Vector2( 31.553, 24 )
+position = Vector2( 31.553, 3.49457 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Menu" parent="." instance=ExtResource( 8 )]
+position = Vector2( 31.553, 3.495 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="Shutdown" type="ColorRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 30.0
-margin_top = 13.0
+margin_top = -7.50543
 margin_right = 677.0
-margin_bottom = 526.0
+margin_bottom = 505.495
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
@@ -90,6 +104,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 margin_left = -70.65
 margin_top = 502.518
 margin_right = 775.35
@@ -134,52 +149,65 @@ __meta__ = {
 }
 
 [node name="Up" parent="." instance=ExtResource( 3 )]
-position = Vector2( 72.8927, 584.622 )
+position = Vector2( 125.238, 588.405 )
 
 [node name="Down" parent="." instance=ExtResource( 3 )]
-position = Vector2( 183.849, 586.578 )
+position = Vector2( 123.199, 715.591 )
 action = 1
 
 [node name="Left" parent="." instance=ExtResource( 3 )]
-position = Vector2( 295.684, 585.908 )
+position = Vector2( 51.9171, 655.438 )
 action = 2
 
 [node name="Right" parent="." instance=ExtResource( 3 )]
-position = Vector2( 409.412, 584.173 )
+position = Vector2( 198.303, 653.703 )
 action = 3
 
 [node name="Bullet" parent="." instance=ExtResource( 3 )]
-position = Vector2( 519.792, 583.438 )
+position = Vector2( 337.842, 656.467 )
 action = 4
 
 [node name="Explosion" parent="." instance=ExtResource( 3 )]
-position = Vector2( 625.069, 583.968 )
+position = Vector2( 454.943, 655.831 )
 action = 5
 
-[node name="F" parent="." instance=ExtResource( 2 )]
-position = Vector2( 140, 728 )
-text = "F"
-key = 70
+[node name="W" parent="." instance=ExtResource( 2 )]
+position = Vector2( 426.778, 739.994 )
+text = "W"
+key = 87
 
-[node name="G" parent="." instance=ExtResource( 2 )]
-position = Vector2( 280, 728 )
-key = 71
+[node name="A" parent="." instance=ExtResource( 2 )]
+position = Vector2( 528.325, 741.581 )
+text = "A"
+key = 65
 
-[node name="H" parent="." instance=ExtResource( 2 )]
-position = Vector2( 420, 728 )
-text = "H"
-key = 72
+[node name="S" parent="." instance=ExtResource( 2 )]
+position = Vector2( 636.218, 741.581 )
+text = "S"
+key = 83
 
-[node name="J" parent="." instance=ExtResource( 2 )]
-position = Vector2( 560, 728 )
-text = "J"
-key = 74
+[node name="Start" type="Button" parent="."]
+margin_left = 569.0
+margin_top = 642.0
+margin_right = 678.0
+margin_bottom = 668.0
+custom_fonts/font = SubResource( 3 )
+text = "START"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="player_damaged" from="Game" to="." method="_on_Game_player_damaged"]
-[connection signal="assigned" from="F" to="." method="send_input_system"]
-[connection signal="current" from="F" to="." method="set_current_button"]
-[connection signal="assigned" from="G" to="." method="send_input_system"]
-[connection signal="current" from="G" to="." method="set_current_button"]
-[connection signal="assigned" from="H" to="." method="send_input_system"]
-[connection signal="current" from="H" to="." method="set_current_button"]
-[connection signal="assigned" from="J" to="." method="send_input_system"]
-[connection signal="current" from="J" to="." method="set_current_button"]
+[connection signal="play" from="Menu" to="." method="_on_Menu_play"]
+[connection signal="area_entered" from="W" to="W" method="_on_Button_area_entered"]
+[connection signal="area_exited" from="W" to="W" method="_on_Button_area_exited"]
+[connection signal="assigned" from="W" to="." method="send_input_system"]
+[connection signal="current" from="W" to="." method="set_current_button"]
+[connection signal="area_entered" from="A" to="A" method="_on_Button_area_entered"]
+[connection signal="area_exited" from="A" to="A" method="_on_Button_area_exited"]
+[connection signal="assigned" from="A" to="." method="send_input_system"]
+[connection signal="current" from="A" to="." method="set_current_button"]
+[connection signal="area_entered" from="S" to="S" method="_on_Button_area_entered"]
+[connection signal="area_exited" from="S" to="S" method="_on_Button_area_exited"]
+[connection signal="assigned" from="S" to="." method="send_input_system"]
+[connection signal="current" from="S" to="." method="set_current_button"]
+[connection signal="button_up" from="Start" to="." method="_on_Start_button_up"]

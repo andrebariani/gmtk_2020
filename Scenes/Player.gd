@@ -11,6 +11,7 @@ var moving = false
 var controls = {KEY_F:-1, KEY_G:-1, KEY_H:-1, KEY_J:-1}
 
 var inv_frames = 0
+var paused = true
 
 var explosions = 3
 
@@ -48,29 +49,31 @@ func receive_input(key, action):
 
 
 func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.scancode in controls:
-			var input = controls[event.scancode]
-			match(input):
-				0: # UP
-					dash(-1)
-					self.rotation_degrees = 90
-					$Ship.animate("move")
-				1: # DOWN
-					dash(1)
-					self.rotation_degrees = 270
-					$Ship.animate("move")
-				2: # LEFT
-					shoot(Vector2(-1, 0))
-					self.rotation_degrees = 0
-				3: # RIGHT
-					shoot(Vector2(1, 0))
-					self.rotation_degrees = 180
-				4: # SHOOT UP-RIGHT
-					shoot(Vector2(0, -1))
-					shoot(Vector2(0, 1))
-				5: # EXPLOSION
-					explosion()
+	if paused:
+		return
+	
+	if event is InputEventKey and event.pressed and event.scancode in controls:
+		var input = controls[event.scancode]
+		match(input):
+			0: # UP
+				dash(-1)
+				self.rotation_degrees = 90
+				$Ship.animate("move")
+			1: # DOWN
+				dash(1)
+				self.rotation_degrees = 270
+				$Ship.animate("move")
+			2: # LEFT
+				shoot(Vector2(-1, 0))
+				self.rotation_degrees = 0
+			3: # RIGHT
+				shoot(Vector2(1, 0))
+				self.rotation_degrees = 180
+			4: # SHOOT UP-RIGHT
+				shoot(Vector2(0, -1))
+				shoot(Vector2(0, 1))
+			5: # EXPLOSION
+				explosion()
 
 
 func damaged():
