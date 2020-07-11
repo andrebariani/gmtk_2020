@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Item.png-508fd14bf19d808ab9524ac78ec6f36b.stex"
+path="res://.import/Item.png-7ffb6753054fa9dc5339b26b4be8c4d3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SpaceGame/Item.png"
-dest_files=[ "res://.import/Item.png-508fd14bf19d808ab9524ac78ec6f36b.stex" ]
+source_file="res://Assets/Sprites/SpaceGame/Item.png"
+dest_files=[ "res://.import/Item.png-7ffb6753054fa9dc5339b26b4be8c4d3.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -28,7 +28,9 @@ func _process(delta):
 	elif distance < -2:
 		distance = -1
 	else:
-		moving = false
+		if moving == true:
+			moving = false
+			$Ship.animate("idle")
 		return
 	
 	moving = true
@@ -44,14 +46,20 @@ func _input(event):
 		if event.scancode in controls:
 			var input = controls[event.scancode]
 			match(input):
-				0:
+				0: # UP
 					dash(-1)
-				1:
+					self.rotation_degrees = 90
+					$Ship.animate("move")
+				1: # DOWN
 					dash(1)
-				2:
+					self.rotation_degrees = 270
+					$Ship.animate("move")
+				2: # LEFT
 					shoot(Vector2(-1, 0))
-				3:
+					self.rotation_degrees = 0
+				3: # RIGHT
 					shoot(Vector2(1, 0))
+					self.rotation_degrees = 180
 				4:
 					shoot(Vector2(0, -1))
 					shoot(Vector2(0, 1))
@@ -60,6 +68,7 @@ func _input(event):
 
 
 func damaged():
+	$Ship.animate("blink")
 	emit_signal("damaged")
 
 

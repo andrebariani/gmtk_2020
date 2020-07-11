@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Star.png-dd208c372899eef9dbe3f3f03b10c019.stex"
+path="res://.import/Explosion.png-2ae755bff30bf0ed1cc7376d2e4a4177.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SpaceGame/Star.png"
-dest_files=[ "res://.import/Star.png-dd208c372899eef9dbe3f3f03b10c019.stex" ]
+source_file="res://Assets/Sprites/SpaceGame/Explosion.png"
+dest_files=[ "res://.import/Explosion.png-2ae755bff30bf0ed1cc7376d2e4a4177.stex" ]
 
 [params]
 

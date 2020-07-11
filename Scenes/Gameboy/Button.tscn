@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Button.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Gameboy/Button.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=3]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.0145, 32.0225 )

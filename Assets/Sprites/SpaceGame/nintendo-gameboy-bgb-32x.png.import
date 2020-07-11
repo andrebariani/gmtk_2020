@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Enemy_B_Steam.png-99f8fdc61b1512c13697151c725f90b9.stex"
+path="res://.import/nintendo-gameboy-bgb-32x.png-680dfee86008f08402857673d8bf8230.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SpaceGame/Enemy_B_Steam.png"
-dest_files=[ "res://.import/Enemy_B_Steam.png-99f8fdc61b1512c13697151c725f90b9.stex" ]
+source_file="res://Assets/Sprites/SpaceGame/nintendo-gameboy-bgb-32x.png"
+dest_files=[ "res://.import/nintendo-gameboy-bgb-32x.png-680dfee86008f08402857673d8bf8230.stex" ]
 
 [params]
 

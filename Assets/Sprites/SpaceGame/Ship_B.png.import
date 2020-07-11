@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Enemy_A.png-c92fbe1306793d6f9704abf1e0c36390.stex"
+path="res://.import/Ship_B.png-e02ed0641a189660c4574641fcfcb7f1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SpaceGame/Enemy_A.png"
-dest_files=[ "res://.import/Enemy_A.png-c92fbe1306793d6f9704abf1e0c36390.stex" ]
+source_file="res://Assets/Sprites/SpaceGame/Ship_B.png"
+dest_files=[ "res://.import/Ship_B.png-e02ed0641a189660c4574641fcfcb7f1.stex" ]
 
 [params]
 

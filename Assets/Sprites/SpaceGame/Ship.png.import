@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Enemy_A_Steam.png-1576f33128ab6f6930b7eca9f6403214.stex"
+path="res://.import/Ship.png-dc7f59e354c656a59d57cc9b34bedb26.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SpaceGame/Enemy_A_Steam.png"
-dest_files=[ "res://.import/Enemy_A_Steam.png-1576f33128ab6f6930b7eca9f6403214.stex" ]
+source_file="res://Assets/Sprites/SpaceGame/Ship.png"
+dest_files=[ "res://.import/Ship.png-dc7f59e354c656a59d57cc9b34bedb26.stex" ]
 
 [params]
 
