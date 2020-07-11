@@ -1,22 +1,52 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/FastEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Scenes/Star.tscn" type="PackedScene" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=4]
+resource_name = "explosion"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 0.0313726, 0.0941176, 0.12549, 1 ), Color( 0.878431, 0.972549, 0.815686, 1 ), Color( 0.0313726, 0.0941176, 0.12549, 1 ), Color( 0.878431, 0.972549, 0.815686, 1 ), Color( 0.0313726, 0.0941176, 0.12549, 1 ), Color( 0.878431, 0.972549, 0.815686, 1 ), Color( 0.0313726, 0.0941176, 0.12549, 1 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.7031, 313.295 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 410.673, 15.6935 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 5 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
 enemy = ExtResource( 4 )
 fast_enemy = ExtResource( 3 )
+star = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/explosion = SubResource( 4 )
 
 [node name="Background" type="ColorRect" parent="."]
 margin_right = 807.0
 margin_bottom = 603.0
-color = Color( 0.611765, 0.623529, 0.305882, 1 )
+color = Color( 0.0313726, 0.0941176, 0.12549, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,6 +62,14 @@ collision_mask = 0
 position = Vector2( -107.24, 296.626 )
 shape = SubResource( 1 )
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 393.734, -79.003 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 408.547, 693.737 )
+shape = SubResource( 2 )
+
 [node name="Area2D2" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 0
@@ -39,4 +77,46 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2( 922.009, 296.626 )
 shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 686.873
+margin_top = 19.4401
+margin_right = 782.873
+margin_bottom = 67.4401
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rockets" type="Control" parent="."]
+margin_right = 232.0
+margin_bottom = 89.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rocket" type="TextureRect" parent="Rockets"]
+margin_left = 12.8878
+margin_top = 15.7517
+margin_right = 52.8878
+margin_bottom = 55.7517
+texture = ExtResource( 7 )
+
+[node name="Rocket2" type="TextureRect" parent="Rockets"]
+margin_left = 84.4666
+margin_top = 15.7517
+margin_right = 148.467
+margin_bottom = 79.7517
+texture = ExtResource( 7 )
+
+[node name="Rocket3" type="TextureRect" parent="Rockets"]
+margin_left = 153.94
+margin_top = 15.7517
+margin_right = 217.94
+margin_bottom = 79.7517
+texture = ExtResource( 7 )
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
+[connection signal="exploded" from="Player" to="." method="_on_Player_exploded"]
+[connection signal="scored" from="Player" to="." method="_on_Player_scored"]
