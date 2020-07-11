@@ -4,6 +4,10 @@ var button = null
 var mouseover = false
 
 export var action = 0
+export(Texture) var sprite
+
+func _ready():
+	$Sprite.texture = sprite
 
 func get_action():
 	return action

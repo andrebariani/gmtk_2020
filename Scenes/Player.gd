@@ -8,6 +8,8 @@ export var move_speed = 5
 onready var target_y = self.position.y
 var moving = false
 
+var shoot_clock = 0
+
 var controls = {KEY_F:-1, KEY_G:-1, KEY_H:-1, KEY_J:-1}
 
 var inv_frames = 0
@@ -26,22 +28,25 @@ func _ready():
 
 
 func _process(delta):
+	if inv_frames > 0:
+		inv_frames -= delta
+	if shoot_clock > 0:
+		shoot_clock -= delta
+	
 	var distance = target_y - self.position.y
 	if distance > 2:
 		distance = 1
 	elif distance < -2:
 		distance = -1
 	else:
-		if moving == true:
+		if moving:
 			moving = false
+		else:
 			$Ship.animate("idle")
 		return
 	
 	moving = true
 	self.position.y += move_speed*delta*distance
-	
-	if inv_frames > 0:
-		inv_frames -= delta
 
 
 func receive_input(key, action):
@@ -58,20 +63,28 @@ func _input(event):
 			0: # UP
 				dash(-1)
 				self.rotation_degrees = 90
-				$Ship.animate("move")
+				if !moving:
+					$Ship.animate("move")
 			1: # DOWN
 				dash(1)
 				self.rotation_degrees = 270
-				$Ship.animate("move")
+				if !moving:
+					$Ship.animate("move")
 			2: # LEFT
-				shoot(Vector2(-1, 0))
-				self.rotation_degrees = 0
+				if shoot_clock <= 0:
+					shoot_clock = 0.2
+					shoot(Vector2(-1, 0))
+					self.rotation_degrees = 0
 			3: # RIGHT
-				shoot(Vector2(1, 0))
-				self.rotation_degrees = 180
-			4: # SHOOT UP-RIGHT
-				shoot(Vector2(0, -1))
-				shoot(Vector2(0, 1))
+				if shoot_clock <= 0:
+					shoot_clock = 0.2
+					shoot(Vector2(1, 0))
+					self.rotation_degrees = 180
+			4: # SHOOT UP+DOWN
+				if shoot_clock <= 0:
+					shoot_clock = 0.2
+					shoot(Vector2(0, -1))
+					shoot(Vector2(0, 1))
 			5: # EXPLOSION
 				explosion()
 
@@ -102,7 +115,7 @@ func shoot(direction):
 	var _new = bullet.instance()
 	get_parent().add_child(_new)
 	get_parent().move_child(_new, get_parent().get_child_count()-3)
-	
+		
 	_new.position = self.position
 	_new.set_direction(direction)
 

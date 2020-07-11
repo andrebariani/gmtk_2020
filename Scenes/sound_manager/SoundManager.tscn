@@ -1,0 +1,131 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/sound_manager/SoundManager.gd" type="Script" id=1]
+[ext_resource path="res://scenes/sound_manager/debug.gd" type="Script" id=8]
+
+[node name="SoundManager" type="Node" groups=[
+"sound_manager",
+]]
+script = ExtResource( 1 )
+
+[node name="songs" type="Node" parent="."]
+
+[node name="world_map" type="AudioStreamPlayer" parent="songs"]
+
+[node name="stage1" type="AudioStreamPlayer" parent="songs"]
+
+[node name="stage2" type="AudioStreamPlayer" parent="songs"]
+
+[node name="stage3" type="AudioStreamPlayer" parent="songs"]
+
+[node name="stage4" type="AudioStreamPlayer" parent="songs"]
+
+[node name="stage5" type="AudioStreamPlayer" parent="songs"]
+
+[node name="game_over" type="AudioStreamPlayer" parent="songs"]
+
+[node name="level_complete" type="AudioStreamPlayer" parent="songs"]
+
+[node name="stage5simple" type="AudioStreamPlayer" parent="songs"]
+
+[node name="sfx" type="Node" parent="."]
+
+[node name="ui_select" type="AudioStreamPlayer" parent="sfx"]
+
+[node name="ui_move" type="AudioStreamPlayer" parent="sfx"]
+
+[node name="ui_deselect" type="AudioStreamPlayer" parent="sfx"]
+
+[node name="debug" type="Control" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SongSelect" type="OptionButton" parent="debug"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 145.0
+margin_bottom = 11.0
+text = "Song Select"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SongSelect2" type="OptionButton" parent="debug"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -215.5
+margin_top = -10.5
+margin_right = -70.5
+margin_bottom = 10.5
+text = "Channel Select"
+
+[node name="FadeSelect" type="OptionButton" parent="debug"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -27.5
+margin_top = -10.0
+margin_right = 110.5
+margin_bottom = 10.0
+text = "Fade Effect"
+
+[node name="SfxSelect" type="OptionButton" parent="debug"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 155.464
+margin_top = -10.0
+margin_right = 293.464
+margin_bottom = 10.0
+text = "SFX"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="debug"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -10.0
+margin_bottom = 10.0
+text = ">"
+
+[node name="current" type="Label" parent="debug"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+margin_right = 40.0
+
+[node name="next" type="Label" parent="debug"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -14.0
+margin_right = 20.0
+
+[node name="TweenFadeIn" type="Tween" parent="."]
+
+[node name="TweenCrossCurr" type="Tween" parent="."]
+
+[node name="TweenCrossNext" type="Tween" parent="."]
+[connection signal="item_selected" from="debug/SfxSelect" to="debug" method="_on_SfxSelect_item_selected"]
+[connection signal="pressed" from="debug/Play" to="debug" method="_on_Button_pressed"]
+[connection signal="tween_completed" from="TweenFadeIn" to="." method="_on_TweenFadeIn_tween_completed"]
+[connection signal="tween_completed" from="TweenCrossCurr" to="." method="_on_TweenCrossCurr_tween_completed"]
+[connection signal="tween_completed" from="TweenCrossNext" to="." method="_on_TweenCrossNext_tween_completed"]
