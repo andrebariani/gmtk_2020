@@ -19,9 +19,9 @@ func _ready():
 
 func _process(delta):
 	var distance = target_y - self.position.y
-	if distance > 0.2:
+	if distance > 1:
 		distance = 1
-	elif distance < -0.2:
+	elif distance < -1:
 		distance = -1
 	else:
 		return
@@ -33,7 +33,7 @@ func receive_input(key, action):
 	controls[action] = key
 
 
-func input_function(event):
+func _input(event):
 	if event is InputEventKey and event.pressed:
 		var input = controls.find(event.scancode)
 		match(input):
@@ -46,9 +46,9 @@ func input_function(event):
 			3:
 				look(1)
 			4:
-				look(-1)
+				shoot(bullet)
 			5:
-				look(1)
+				shoot(explosion_bullet)
 
 
 func damaged():

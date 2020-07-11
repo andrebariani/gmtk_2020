@@ -16,4 +16,7 @@ func _on_Area2D_area_entered(area):
 	if area.has_method("damaged"):
 		area.damaged()
 	
+	destroy()
+
+func destroy():
 	queue_free()

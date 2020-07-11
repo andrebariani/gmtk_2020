@@ -8,6 +8,7 @@ extents = Vector2( 31.8253, 31.6443 )
 
 [node name="Bullet" type="Node2D"]
 script = ExtResource( 2 )
+move_speed = 500
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -18,3 +19,4 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

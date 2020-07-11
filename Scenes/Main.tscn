@@ -1,11 +1,63 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/ActionSlot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Main.gd" type="Script" id=4]
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="Game" parent="." instance=ExtResource( 1 )]
+position = Vector2( 31.5531, 8.60538 )
+scale = Vector2( 0.8, 0.8 )
 
-[node name="Button" parent="." instance=ExtResource( 2 )]
-position = Vector2( 220.032, 762.938 )
+[node name="Slots" type="Node2D" parent="."]
+position = Vector2( 352.454, 511.059 )
+
+[node name="Up" parent="Slots" instance=ExtResource( 3 )]
+position = Vector2( -277.508, 75.6161 )
+
+[node name="Down" parent="Slots" instance=ExtResource( 3 )]
+position = Vector2( -168.605, 75.5186 )
+action = 1
+
+[node name="Left" parent="Slots" instance=ExtResource( 3 )]
+position = Vector2( -56.7697, 74.8489 )
+action = 2
+
+[node name="Right" parent="Slots" instance=ExtResource( 3 )]
+position = Vector2( 56.9584, 73.1139 )
+action = 3
+
+[node name="Bullet" parent="Slots" instance=ExtResource( 3 )]
+position = Vector2( 167.338, 72.3788 )
+action = 4
+
+[node name="Explosion" parent="Slots" instance=ExtResource( 3 )]
+position = Vector2( 272.615, 72.9086 )
+action = 5
+
+[node name="Buttons" type="Node2D" parent="."]
+position = Vector2( 319.727, 667.146 )
+
+[node name="G" parent="Buttons" instance=ExtResource( 2 )]
+position = Vector2( -131.865, 67.6931 )
+key = 71
+
+[node name="H" parent="Buttons" instance=ExtResource( 2 )]
+position = Vector2( -19.954, 67.6931 )
+key = 72
+
+[node name="J" parent="Buttons" instance=ExtResource( 2 )]
+position = Vector2( 81.985, 67.6931 )
+key = 74
+
+[node name="K" parent="Buttons" instance=ExtResource( 2 )]
+position = Vector2( 187.248, 67.6931 )
+key = 75
+[connection signal="player_damaged" from="Game" to="." method="_on_Game_player_damaged"]
+[connection signal="assigned" from="Buttons/G" to="." method="send_input_system"]
+[connection signal="assigned" from="Buttons/H" to="." method="send_input_system"]
+[connection signal="assigned" from="Buttons/J" to="." method="send_input_system"]
+[connection signal="assigned" from="Buttons/K" to="." method="send_input_system"]

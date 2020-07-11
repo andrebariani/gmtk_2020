@@ -61,5 +61,9 @@ func input_received(button):
 	player.receive_input(button)
 
 
+func send_input_system(key, action):
+	$Player.receive_input(key, action)
+
+
 func _on_Player_damaged():
 	emit_signal("player_damaged")

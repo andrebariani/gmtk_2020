@@ -13,7 +13,7 @@ collision_mask = 0
 script = ExtResource( 2 )
 bullet = ExtResource( 3 )
 explosion_bullet = ExtResource( 4 )
-move_speed = 45
+move_speed = 100
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

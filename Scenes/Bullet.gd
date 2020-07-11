@@ -10,3 +10,10 @@ func _process(delta):
 
 func set_direction(_direction):
 	direction = _direction
+
+
+func _on_Area2D_area_entered(area):
+	if area.has_method("destroy"):
+		area.destroy()
+	
+	queue_free()
