@@ -38,13 +38,13 @@ func spawn_enemies():
 	if fast_amount > 0:
 		fast_amount = randi() % fast_amount
 	
-	for i in range(enemy_amount):
+	for _i in range(enemy_amount):
 		spawn_enemy(enemy)
 	
-	for i in range(fast_amount):
+	for _i in range(fast_amount):
 		spawn_enemy(fast_enemy)
 	
-	for i in range(randi() % 2):
+	for _i in range(randi() % 2):
 		spawn_enemy(star)
 
 

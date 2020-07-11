@@ -1,7 +1,7 @@
 extends Node2D
 
 export(PackedScene) var bullet
-export(PackedScene) var explosion
+export(PackedScene) var explosion_scene
 
 export var dash_distance = 100
 export var move_speed = 5
@@ -94,7 +94,7 @@ func explosion():
 		return
 	
 	explosions -= 1
-	var _new = explosion.instance()
+	var _new = explosion_scene.instance()
 	get_parent().add_child(_new)
 	get_parent().move_child(_new, get_parent().get_child_count()-3)
 	_new.position = self.position

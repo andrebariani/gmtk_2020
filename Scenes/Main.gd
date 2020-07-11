@@ -2,9 +2,15 @@ extends Node2D
 
 var buttons = ["G", "H", "J", "F"]
 
+func set_current_button(current):
+	for button in buttons:
+		get_node(button).set_active(button == current)
+
 
 func send_input_system(key, action):
 	$Game.send_input_system(key, action)
+	for button in buttons:
+		get_node(button).set_active(true)
 
 
 func _on_Game_player_damaged():
