@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Early GameBoy.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Sprites/GameBoy/MenuOption.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="Animation" id=1]
@@ -133,6 +134,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="Menu/Play"]
+modulate = Color( 0.0313726, 0.0941176, 0.12549, 1 )
+margin_left = -62.475
+margin_top = 6.86768
+margin_right = -40.475
+margin_bottom = 28.8677
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Credits" type="Label" parent="Menu"]
 margin_left = 231.499
 margin_top = 366.34
@@ -143,6 +156,19 @@ custom_colors/font_color = Color( 0.203922, 0.407843, 0.337255, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "CREDITS"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Menu/Credits"]
+visible = false
+modulate = Color( 0.0313726, 0.0941176, 0.12549, 1 )
+margin_left = -60.2009
+margin_top = 6.82663
+margin_right = -38.2009
+margin_bottom = 28.8266
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -161,6 +187,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="Menu/Quit"]
+visible = false
+modulate = Color( 0.0313726, 0.0941176, 0.12549, 1 )
+margin_left = -59.3373
+margin_top = 7.89096
+margin_right = -37.3373
+margin_bottom = 29.891
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Credits" type="Control" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 40.0
@@ -175,7 +214,7 @@ margin_top = 20.4465
 margin_right = 564.852
 margin_bottom = 68.4465
 custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0.878431, 0.972549, 0.815686, 1 )
+custom_colors/font_color = Color( 0.0313726, 0.0941176, 0.12549, 1 )
 text = "CREDITS"
 align = 1
 __meta__ = {
@@ -188,7 +227,7 @@ margin_top = 81.5382
 margin_right = 728.0
 margin_bottom = 518.538
 custom_fonts/font = SubResource( 5 )
-custom_colors/font_color = Color( 0.878431, 0.972549, 0.815686, 1 )
+custom_colors/font_color = Color( 0.203922, 0.407843, 0.337255, 1 )
 text = "Anderson Garrote:
 Art Direction &
 Game Design
@@ -203,6 +242,7 @@ Game Design"
 align = 1
 autowrap = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -215,6 +255,19 @@ custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.203922, 0.407843, 0.337255, 1 )
 text = "BACK"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Credits/Back"]
+visible = false
+modulate = Color( 0.0313726, 0.0941176, 0.12549, 1 )
+margin_left = 10.3047
+margin_top = 8.61072
+margin_right = 32.3047
+margin_bottom = 30.6107
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

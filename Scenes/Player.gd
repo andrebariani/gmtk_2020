@@ -5,7 +5,7 @@ export(PackedScene) var explosion_scene
 
 export var dash_distance = 100
 export var move_speed = 5
-onready var target_y = self.position.y
+onready var target_y = 0
 var moving = false
 
 var shoot_clock = 0
