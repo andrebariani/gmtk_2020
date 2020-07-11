@@ -1,13 +1,11 @@
 extends Node2D
 
-var scaler = 0.1
+var timer = 0
 
 func _process(delta):
-	scaler += 50*delta
-	if scaler > 30:
+	timer += delta
+	if timer > 0.5:
 		queue_free()
-	else:
-		self.scale = Vector2(scaler, scaler)
 
 
 func _on_Area2D_area_entered(area):

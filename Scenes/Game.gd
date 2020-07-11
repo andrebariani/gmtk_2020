@@ -82,4 +82,5 @@ func _on_Player_scored():
 
 
 func _on_Player_exploded(explosions):
+	$AnimationPlayer.play("explosion")
 	rockets[explosions].visible = false

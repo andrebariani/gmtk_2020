@@ -7,9 +7,11 @@
 extents = Vector2( 31.4513, 31.7056 )
 
 [node name="Explosion" type="Node2D"]
+scale = Vector2( 30, 30 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 modulate = Color( 1, 0.00784314, 0.00784314, 1 )
 texture = ExtResource( 1 )
 
