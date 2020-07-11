@@ -71,15 +71,15 @@ func _input(event):
 				if !moving:
 					$Ship.animate("move")
 			2: # LEFT
+				self.rotation_degrees = 0
 				if shoot_clock <= 0:
 					shoot_clock = 0.2
 					shoot(Vector2(-1, 0))
-					self.rotation_degrees = 0
 			3: # RIGHT
+				self.rotation_degrees = 180
 				if shoot_clock <= 0:
 					shoot_clock = 0.2
 					shoot(Vector2(1, 0))
-					self.rotation_degrees = 180
 			4: # SHOOT UP+DOWN
 				if shoot_clock <= 0:
 					shoot_clock = 0.2
@@ -116,7 +116,7 @@ func shoot(direction):
 	get_parent().add_child(_new)
 	get_parent().move_child(_new, get_parent().get_child_count()-3)
 		
-	_new.position = self.position
+	_new.global_position = $Shoot.global_position
 	_new.set_direction(direction)
 
 
