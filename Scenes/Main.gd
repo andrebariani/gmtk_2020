@@ -8,6 +8,9 @@ func send_input_system(key, action):
 
 
 func _on_Game_player_damaged():
+	if buttons.size() <= 0:
+		return
+	
 	var rando = randi() % buttons.size()
 	
 	var node = get_node(buttons[rando])
@@ -21,4 +24,5 @@ func _on_Game_player_damaged():
 
 
 func out_of_control():
-	pass
+	$Shutdown/Label.text = "Score:" + str($Game.get_score())
+	$AnimationPlayer.play("out_of_control")

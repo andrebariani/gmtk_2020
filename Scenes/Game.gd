@@ -64,6 +64,10 @@ func spawn_enemy(packed):
 		_new.set_direction(1)
 
 
+func get_score():
+	return score
+
+
 func input_received(button):
 	player.receive_input(button)
 
