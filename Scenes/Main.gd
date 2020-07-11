@@ -1,10 +1,16 @@
 extends Node2D
 
-var buttons = ["G", "H", "J", "F"]
+var buttons = ["T", "F", "G", "H"]
+
+func set_current_button(current):
+	for button in buttons:
+		get_node(button).set_active(button == current)
 
 
 func send_input_system(key, action):
 	$Game.send_input_system(key, action)
+	for button in buttons:
+		get_node(button).set_active(true)
 
 
 func _on_Game_player_damaged():
@@ -24,5 +30,5 @@ func _on_Game_player_damaged():
 
 
 func out_of_control():
-	$Shutdown/Label.text = "Score:" + str($Game.get_score())
+	$Shutdown/Score.text = "SCORE:" + str($Game.get_score())
 	$AnimationPlayer.play("out_of_control")

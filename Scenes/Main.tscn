@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/ActionSlot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Gameboy/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Gameboy/ActionSlot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=5]
 
@@ -45,25 +45,15 @@ script = ExtResource( 4 )
 anims/out_of_control = SubResource( 1 )
 
 [node name="Game" parent="." instance=ExtResource( 1 )]
-position = Vector2( 31.5531, 8.60538 )
+position = Vector2( 31.553, 24 )
 scale = Vector2( 0.8, 0.8 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -68.0
-margin_top = 491.0
-margin_right = 778.0
-margin_bottom = 897.0
-mouse_filter = 2
-color = Color( 0.0784314, 0.0745098, 0.0745098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Shutdown" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 30.0
-margin_top = 9.0
+margin_top = 13.0
 margin_right = 677.0
-margin_bottom = 492.0
+margin_bottom = 526.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
@@ -85,6 +75,7 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="Shutdown"]
+visible = false
 margin_left = 132.825
 margin_top = 282.0
 margin_right = 516.825
@@ -94,6 +85,50 @@ custom_colors/font_color = Color( 0.878431, 0.972549, 0.815686, 1 )
 text = "SCORE: 50"
 align = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -70.65
+margin_top = 502.518
+margin_right = 775.35
+margin_bottom = 908.518
+mouse_filter = 2
+color = Color( 0.0784314, 0.0745098, 0.0745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+margin_left = 745.0
+margin_top = -543.0
+margin_right = 793.0
+margin_bottom = 5.0
+mouse_filter = 2
+color = Color( 0.0784314, 0.0745098, 0.0745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect"]
+margin_left = 55.0
+margin_top = -532.0
+margin_right = 103.0
+margin_bottom = 9.0
+mouse_filter = 2
+color = Color( 0.0784314, 0.0745098, 0.0745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect"]
+margin_left = 103.0
+margin_top = -525.0
+margin_right = 751.0
+margin_bottom = -479.0
+mouse_filter = 2
+color = Color( 0.0784314, 0.0745098, 0.0745098, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -121,26 +156,26 @@ action = 4
 position = Vector2( 625.069, 583.968 )
 action = 5
 
+[node name="T" parent="." instance=ExtResource( 2 )]
+position = Vector2( 166.382, 729.839 )
+text = "T"
+key = 84
+
 [node name="F" parent="." instance=ExtResource( 2 )]
-position = Vector2( 180.975, 726.839 )
+position = Vector2( 411.507, 728.884 )
 text = "F"
 key = 70
 
 [node name="G" parent="." instance=ExtResource( 2 )]
-position = Vector2( 290.862, 728.839 )
+position = Vector2( 288.928, 730.597 )
 key = 71
 
 [node name="H" parent="." instance=ExtResource( 2 )]
-position = Vector2( 402.773, 728.839 )
+position = Vector2( 538.434, 727.673 )
 text = "H"
 key = 72
-
-[node name="J" parent="." instance=ExtResource( 2 )]
-position = Vector2( 504.712, 728.839 )
-text = "J"
-key = 74
 [connection signal="player_damaged" from="Game" to="." method="_on_Game_player_damaged"]
+[connection signal="assigned" from="T" to="." method="send_input_system"]
 [connection signal="assigned" from="F" to="." method="send_input_system"]
 [connection signal="assigned" from="G" to="." method="send_input_system"]
 [connection signal="assigned" from="H" to="." method="send_input_system"]
-[connection signal="assigned" from="J" to="." method="send_input_system"]

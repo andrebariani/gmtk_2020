@@ -1,7 +1,7 @@
 extends Node2D
 
 export(PackedScene) var bullet
-export(PackedScene) var explosion
+export(PackedScene) var explosion_scene
 
 export var dash_distance = 100
 export var move_speed = 5
@@ -15,6 +15,7 @@ var explosions = 3
 signal damaged
 signal scored
 signal exploded
+signal gotten_fuel
 signal dash_distance
 
 func _ready():
@@ -28,7 +29,9 @@ func _process(delta):
 	elif distance < -2:
 		distance = -1
 	else:
-		moving = false
+		if moving == true:
+			moving = false
+			$Ship.animate("idle")
 		return
 	
 	moving = true
@@ -44,14 +47,20 @@ func _input(event):
 		if event.scancode in controls:
 			var input = controls[event.scancode]
 			match(input):
-				0:
+				0: # UP
 					dash(-1)
-				1:
+					self.rotation_degrees = 90
+					$Ship.animate("move")
+				1: # DOWN
 					dash(1)
-				2:
+					self.rotation_degrees = 270
+					$Ship.animate("move")
+				2: # LEFT
 					shoot(Vector2(-1, 0))
-				3:
+					self.rotation_degrees = 0
+				3: # RIGHT
 					shoot(Vector2(1, 0))
+					self.rotation_degrees = 180
 				4:
 					shoot(Vector2(0, -1))
 					shoot(Vector2(0, 1))
@@ -60,7 +69,15 @@ func _input(event):
 
 
 func damaged():
+	$Ship.animate("blink")
 	emit_signal("damaged")
+
+
+func gotten_fuel():
+	if explosions >= 3:
+		return
+	emit_signal("gotten_fuel", explosions)
+	explosions += 1
 
 
 func score():
@@ -85,7 +102,7 @@ func explosion():
 		return
 	
 	explosions -= 1
-	var _new = explosion.instance()
+	var _new = explosion_scene.instance()
 	get_parent().add_child(_new)
 	get_parent().move_child(_new, get_parent().get_child_count()-3)
 	_new.position = self.position

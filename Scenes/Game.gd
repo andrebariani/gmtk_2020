@@ -3,12 +3,13 @@ extends Node2D
 export(PackedScene) var enemy
 export(PackedScene) var fast_enemy
 export(PackedScene) var star
+export(PackedScene) var fuel
 
 export var x_limit = 800
 export var y_limit = 600
 
 var score = 0
-onready var rockets = [$Rockets/Rocket, $Rockets/Rocket2, $Rockets/Rocket3]
+onready var rockets = [$Bombs/Bomb, $Bombs/Bomb2, $Bombs/Bomb3]
 
 var wave = 2
 var wave_cooldown = 4
@@ -19,6 +20,10 @@ var clock = 0
 onready var player = $Player
 
 signal player_damaged
+
+
+func _ready():
+	randomize()
 
 
 func _process(delta):
@@ -38,14 +43,17 @@ func spawn_enemies():
 	if fast_amount > 0:
 		fast_amount = randi() % fast_amount
 	
-	for i in range(enemy_amount):
+	for _i in range(enemy_amount):
 		spawn_enemy(enemy)
 	
-	for i in range(fast_amount):
+	for _i in range(fast_amount):
 		spawn_enemy(fast_enemy)
 	
-	for i in range(randi() % 2):
+	for _i in range(randi() % 2):
 		spawn_enemy(star)
+	
+	for _i in range(max(0, (randi() % 6) - 4) ):
+		spawn_enemy(fuel)
 
 
 func spawn_enemy(packed):
@@ -88,3 +96,7 @@ func _on_Player_scored():
 func _on_Player_exploded(explosions):
 	$AnimationPlayer.play("explosion")
 	rockets[explosions].visible = false
+
+
+func _on_Player_gotten_fuel(explosions):
+	rockets[explosions].visible = true
