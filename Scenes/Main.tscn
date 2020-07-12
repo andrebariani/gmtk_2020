@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Gameboy/Button.tscn" type="PackedScene" id=2]
@@ -10,6 +10,10 @@
 [ext_resource path="res://Scenes/Menu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Sprites/GameBoy/Up.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Sprites/GameBoy/Down.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/GameBoy/Bomb.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/GameBoy/Right.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/GameBoy/Vertical.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/GameBoy/Left.png" type="Texture" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "out_of_control"
@@ -161,18 +165,22 @@ sprite = ExtResource( 10 )
 [node name="Left" parent="." instance=ExtResource( 3 )]
 position = Vector2( 51.9171, 655.438 )
 action = 2
+sprite = ExtResource( 14 )
 
 [node name="Right" parent="." instance=ExtResource( 3 )]
 position = Vector2( 198.303, 653.703 )
 action = 3
+sprite = ExtResource( 12 )
 
 [node name="Bullet" parent="." instance=ExtResource( 3 )]
 position = Vector2( 337.842, 656.467 )
 action = 4
+sprite = ExtResource( 13 )
 
 [node name="Explosion" parent="." instance=ExtResource( 3 )]
 position = Vector2( 454.943, 655.831 )
 action = 5
+sprite = ExtResource( 11 )
 
 [node name="W" parent="." instance=ExtResource( 2 )]
 position = Vector2( 426.778, 739.994 )

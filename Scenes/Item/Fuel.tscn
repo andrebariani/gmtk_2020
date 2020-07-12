@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Item/Fuel.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/SpaceGame/Bomb.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Elements/Bomb.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.4016, 31.3466 )
@@ -10,9 +10,8 @@ extents = Vector2( 31.4016, 31.3466 )
 script = ExtResource( 1 )
 move_speed = 25
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Bomb" parent="." instance=ExtResource( 2 )]
 scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 1024

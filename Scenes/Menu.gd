@@ -41,8 +41,10 @@ func _input(event):
 
 func set_option(_new):
 	options[option].set("custom_colors/font_color", Color("346856"))
+	options[option].get_node("TextureRect").visible = false
 	option = _new
 	options[option].set("custom_colors/font_color", Color("081820"))
+	options[option].get_node("TextureRect").visible = true
 
 
 func play():

@@ -10,8 +10,7 @@ func _process(delta):
 
 func set_direction(_direction):
 	direction = _direction
-	if direction == 1:
-		self.rotation_degrees = 180
+	self.rotation_degrees = int(direction.x==1)*90 + int(direction.x==-1)*270 + int(direction.y==1)*180 + int(direction.y==-1)*0
 
 
 func _on_Area2D_area_entered(area):
