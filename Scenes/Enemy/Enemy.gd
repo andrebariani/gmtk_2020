@@ -18,9 +18,11 @@ func set_direction(_direction):
 
 
 func _on_Area2D_area_entered(area):
+	if area.has_method("this_is_a_parede"):
+		queue_free()
+		return
 	if area.has_method("damaged"):
 		area.damaged()
-	
 	destroy()
 
 func destroy():
