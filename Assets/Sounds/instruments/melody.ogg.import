@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/melody.ogg-ea9a53d210d43be8be93a4502e247a8a.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/instruments/melody.ogg"
+dest_files=[ "res://.import/melody.ogg-ea9a53d210d43be8be93a4502e247a8a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

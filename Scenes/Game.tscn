@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Sprites/SpaceGame/Bomb.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/SpaceGame/BigStar.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Item/Fuel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Parede.gd" type="Script" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "explosion"
@@ -61,6 +62,7 @@ position = Vector2( 397.328, 319.972 )
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 0
+script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -107.24, 296.626 )
@@ -77,6 +79,7 @@ shape = SubResource( 3 )
 [node name="Area2D2" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 0
+script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2( 922.009, 296.626 )

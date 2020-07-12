@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dettach.wav-246a938eb5c179f54139ec8babc68bbb.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/dettach.wav"
+dest_files=[ "res://.import/dettach.wav-246a938eb5c179f54139ec8babc68bbb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

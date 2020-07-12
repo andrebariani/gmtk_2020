@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/harmony.ogg-162030cf4679659f42649533dc2fca1e.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/instruments/harmony.ogg"
+dest_files=[ "res://.import/harmony.ogg-162030cf4679659f42649533dc2fca1e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
