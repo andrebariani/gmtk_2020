@@ -1,6 +1,7 @@
 extends Node2D
 
 var buttons = ["W", "A", "S"]
+var how_to_play = false
 
 func set_current_button(current):
 	for button in buttons:
@@ -11,6 +12,8 @@ func send_input_system(key, action):
 	$Game.send_input_system(key, action)
 	if is_instance_valid($Menu):
 		$Menu.receive_input(key, action)
+		$AnimationPlayer.play("bye_manual")
+		
 	for button in buttons:
 		get_node(button).set_active(true)
 
@@ -41,3 +44,26 @@ func _on_Start_button_up():
 
 func _on_Menu_play():
 	$Game.start()
+
+
+func _on_HowToPlay_gui_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		how_to_play = !how_to_play
+		
+		if how_to_play:
+			$AnimationPlayer.play("how_to_play")
+		else:
+			$AnimationPlayer.play_backwards("how_to_play")
+
+func show_how_to_play(_show):
+	if _show:
+		move_child($HowToPlay, get_child_count()-1)
+	else:
+		move_child($HowToPlay, 2)
+
+func _on_HowToPlay_mouse_entered():
+	$HowToPlay.color = Color("e2e6aa")
+
+
+func _on_HowToPlay_mouse_exited():
+	$HowToPlay.color = Color("d3dc5b")

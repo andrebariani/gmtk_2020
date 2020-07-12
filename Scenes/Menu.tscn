@@ -95,6 +95,7 @@ margin_left = -21.0
 margin_top = -24.0
 margin_right = 850.0
 margin_bottom = 603.0
+mouse_filter = 2
 color = Color( 0.878431, 0.972549, 0.815686, 1 )
 __meta__ = {
 "_edit_lock_": true,
@@ -104,6 +105,7 @@ __meta__ = {
 [node name="Menu" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -208,6 +210,7 @@ modulate = Color( 1, 1, 1, 0 )
 margin_left = 7.79205
 margin_right = 793.792
 margin_bottom = 661.0
+mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
