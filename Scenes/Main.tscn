@@ -155,21 +155,21 @@ position = Vector2( 358.806, 374.324 )
 scale = Vector2( 2, 2 )
 
 [node name="Up" parent="." instance=ExtResource( 3 )]
-position = Vector2( 136.817, 579.733 )
+position = Vector2( 137, 580 )
 sprite = ExtResource( 9 )
 
 [node name="Down" parent="." instance=ExtResource( 3 )]
-position = Vector2( 134.778, 706.919 )
+position = Vector2( 137, 710 )
 action = 1
 sprite = ExtResource( 10 )
 
 [node name="Left" parent="." instance=ExtResource( 3 )]
-position = Vector2( 63.496, 646.766 )
+position = Vector2( 63, 647 )
 action = 2
 sprite = ExtResource( 14 )
 
 [node name="Right" parent="." instance=ExtResource( 3 )]
-position = Vector2( 209.882, 645.031 )
+position = Vector2( 210, 647 )
 action = 3
 sprite = ExtResource( 12 )
 
