@@ -29,7 +29,7 @@ margin_top = -21.7882
 margin_right = 16.5321
 margin_bottom = 18.2118
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "G"
 __meta__ = {
 "_edit_use_anchors_": false
