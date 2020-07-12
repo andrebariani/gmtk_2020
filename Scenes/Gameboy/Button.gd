@@ -3,6 +3,8 @@ extends Area2D
 var pressed = false
 var active = true
 
+onready var instrument = get_child(5)
+
 export var text = "G"
 export var key = KEY_L
 
@@ -31,6 +33,8 @@ func set_slot(_slot):
 	action = _slot.get_action()
 	target = _slot.global_position
 	_slot.set_button(self)
+	instrument.volume_db = 0
+	$attach.play(0)
 	print_debug("Set " + str(_slot.get_action()))
 
 
@@ -40,6 +44,8 @@ func clear_slot(_old_slot):
 		action = -1
 		target = null
 		_old_slot.set_button(null)
+		instrument.volume_db = -80
+		$dettach.play(0)
 		print_debug("Clear " + str(_old_slot.get_action()))
 
 

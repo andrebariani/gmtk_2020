@@ -36,6 +36,7 @@ func _on_Game_player_damaged():
 func out_of_control():
 	$Shutdown/Score.text = "SCORE:" + str($Game.get_score())
 	$AnimationPlayer.play("out_of_control")
+	$drums.stop()
 
 
 func _on_Start_button_up():

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Sprites/GameBoy/key_blue.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Gameboy/Button.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Fonts/Button_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Sounds/dettach.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sounds/attach.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.0145, 32.0225 )
@@ -30,4 +32,10 @@ text = "G"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="attach" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="dettach" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 [connection signal="input_event" from="." to="." method="_on_Button_input_event"]

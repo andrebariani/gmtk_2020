@@ -81,16 +81,19 @@ func _input(event):
 				if shoot_clock <= 0:
 					shoot_clock = 0.2
 					shoot(Vector2(-1, 0))
+					$shoot.play(0)
 			3: # RIGHT
 				self.rotation_degrees = 180
 				if shoot_clock <= 0:
 					shoot_clock = 0.2
 					shoot(Vector2(1, 0))
+					$shoot.play(0)
 			4: # SHOOT UP+DOWN
 				if shoot_clock <= 0:
 					shoot_clock = 0.2
 					shoot(Vector2(0, -1))
 					shoot(Vector2(0, 1))
+					$shoot_v.play(0)
 			5: # EXPLOSION
 				explosion()
 
@@ -127,6 +130,7 @@ func shoot(direction):
 
 
 func explosion():
+	$bomb.play(0)
 	if explosions <= 0:
 		return
 	
