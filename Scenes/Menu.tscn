@@ -3,7 +3,8 @@
 [ext_resource path="res://Scenes/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Early GameBoy.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Sprites/GameBoy/MenuOption.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/Fonts/credits_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Fonts/credits2_font.tres" type="DynamicFont" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "credits"
@@ -78,10 +79,6 @@ tracks/1/keys = {
 size = 48
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 32
-font_data = ExtResource( 5 )
-
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -115,7 +112,7 @@ margin_left = 54.5092
 margin_top = 65.4437
 margin_right = 726.509
 margin_bottom = 164.444
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.0313726, 0.0941176, 0.12549, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Don't Blame
@@ -130,7 +127,7 @@ margin_left = 312.0
 margin_top = 289.457
 margin_right = 504.0
 margin_bottom = 349.457
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.0313726, 0.0941176, 0.12549, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "PLAY"
@@ -156,7 +153,7 @@ margin_left = 117.914
 margin_top = 364.568
 margin_right = 692.914
 margin_bottom = 424.568
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.203922, 0.407843, 0.337255, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "CREDITS"
@@ -183,7 +180,7 @@ margin_left = 312.0
 margin_top = 439.658
 margin_right = 504.0
 margin_bottom = 499.658
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.203922, 0.407843, 0.337255, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "QUIT"
@@ -234,18 +231,18 @@ margin_left = 51.0
 margin_top = 81.5382
 margin_right = 728.0
 margin_bottom = 518.538
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.203922, 0.407843, 0.337255, 1 )
 text = "Anderson Garrote:
-Art Direction &
+Art Direction and
 Game Design
 
-André Bariani:
-Sound Design &
+Andre Bariani:
+Sound Design and
 Game Design
 
-Dan Isamu (MasterProject):
-Programming &
+Dan Isamu \"MasterProject\":
+Programming and
 Game Design"
 align = 1
 autowrap = true
@@ -259,7 +256,7 @@ margin_left = 221.119
 margin_top = 532.938
 margin_right = 557.119
 margin_bottom = 580.938
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.203922, 0.407843, 0.337255, 1 )
 text = "BACK"
 align = 1

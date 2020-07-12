@@ -63,4 +63,5 @@ texture={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.760784, 0.443137, 0.509804, 1 )
 environment/default_environment="res://default_env.tres"

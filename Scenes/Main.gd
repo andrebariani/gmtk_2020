@@ -62,8 +62,8 @@ func show_how_to_play(_show):
 		move_child($HowToPlay, 2)
 
 func _on_HowToPlay_mouse_entered():
-	$HowToPlay.color = Color("e2e6aa")
+	$HowToPlay.color = Color("ffe596")
 
 
 func _on_HowToPlay_mouse_exited():
-	$HowToPlay.color = Color("d3dc5b")
+	$HowToPlay.color = Color("fcf960")
