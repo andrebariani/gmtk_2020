@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Item/Fuel.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Elements/Bomb.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sounds/fuel.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.4016, 31.3466 )
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+audio_stream = ExtResource( 3 )
 
 [node name="Fuel" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,4 +22,8 @@ collision_layer = 1024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 2 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
