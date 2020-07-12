@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Gameboy/Button.tscn" type="PackedScene" id=2]
@@ -14,6 +14,69 @@
 [ext_resource path="res://Assets/Sprites/GameBoy/Right.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Sprites/GameBoy/Vertical.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Sprites/GameBoy/Left.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/GameBoy/GameBoyBG.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/GameBoy/cursor1600.png" type="Texture" id=16]
+
+[sub_resource type="Animation" id=6]
+resource_name = "bye_manual"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("HowToPlay:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 807.172, 100 ), Vector2( 1500, 100 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "how_to_play"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("HowToPlay:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 0.601, 0.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 807.172, 100 ), Vector2( 1500, 100 ), Vector2( 1500, 1000 ), Vector2( 1500, 1000 ), Vector2( 180, 1000 ), Vector2( 180, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HowToPlay:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 90.0, 90.0, 0.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "show_how_to_play"
+}, {
+"args": [ true ],
+"method": "show_how_to_play"
+} ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "out_of_control"
@@ -43,6 +106,10 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 7 )
+
 [sub_resource type="DynamicFont" id=2]
 size = 64
 font_data = ExtResource( 5 )
@@ -56,7 +123,62 @@ scale = Vector2( 0.95, 0.95 )
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/bye_manual = SubResource( 6 )
+anims/how_to_play = SubResource( 5 )
 anims/out_of_control = SubResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 357.851, 374.523 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 15 )
+
+[node name="HowToPlay" type="ColorRect" parent="."]
+process_priority = -5
+margin_left = 807.172
+margin_top = 100.0
+margin_right = 1212.17
+margin_bottom = 716.0
+rect_rotation = 90.0
+color = Color( 0.827451, 0.862745, 0.356863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HowToPlay"]
+margin_left = 12.3316
+margin_top = 14.1494
+margin_right = 382.332
+margin_bottom = 631.149
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.0392157, 0.0352941, 0.0352941, 1 )
+text = "HOW TO PLAY
+
+DRAG AND DROP KEYBOARD KEYS (W, A, S) INTO ACTION SLOTS TO MAP THEM TO THAT CORRESPONDING ACTION.
+
+WHEN YOU PRESS THAT KEY, YOU WILL ACTIVATE THAT ACTION.
+
+EVERY TIME YOU TAKE A HIT, YOU LOSE A KEYBOARD KEY.
+
+THE OBJECTIVE OF THE GAME IS TO GATHER AS MANY STARS AS POSSIBLE BEFORE RUNNING OUT OF CONTROL KEYS.
+
+"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HowToPlay"]
+margin_left = 305.314
+margin_top = 8.95313
+margin_right = 1905.31
+margin_bottom = 1608.95
+rect_scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Game" parent="." instance=ExtResource( 1 )]
 position = Vector2( 31.553, 3.49457 )
@@ -210,6 +332,9 @@ text = "START"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="gui_input" from="HowToPlay" to="." method="_on_HowToPlay_gui_input"]
+[connection signal="mouse_entered" from="HowToPlay" to="." method="_on_HowToPlay_mouse_entered"]
+[connection signal="mouse_exited" from="HowToPlay" to="." method="_on_HowToPlay_mouse_exited"]
 [connection signal="player_damaged" from="Game" to="." method="_on_Game_player_damaged"]
 [connection signal="play" from="Menu" to="." method="_on_Menu_play"]
 [connection signal="area_entered" from="W" to="W" method="_on_Button_area_entered"]
