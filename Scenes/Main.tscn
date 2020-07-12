@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Scenes/GameBoy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Fonts/AldotheApache.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Assets/Sprites/GameBoy/start.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Menu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Sprites/GameBoy/Up.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Sprites/GameBoy/Down.png" type="Texture" id=10]
@@ -77,6 +77,8 @@ tracks/2/keys = {
 "method": "show_how_to_play"
 } ]
 }
+[ext_resource path="res://Assets/Sprites/GameBoy/start_press.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Fonts/start_font.tres" type="DynamicFont" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "out_of_control"
@@ -113,10 +115,6 @@ font_data = ExtResource( 7 )
 [sub_resource type="DynamicFont" id=2]
 size = 64
 font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 24
-font_data = ExtResource( 7 )
 
 [node name="Main" type="Node2D"]
 scale = Vector2( 0.95, 0.95 )
@@ -322,13 +320,33 @@ position = Vector2( 538.293, 735.488 )
 text = "S"
 key = 83
 
-[node name="Start" type="Button" parent="."]
-margin_left = 571.844
-margin_top = 625.669
-margin_right = 670.844
-margin_bottom = 652.669
-custom_fonts/font = SubResource( 3 )
-text = "START"
+[node name="Start" type="TextureButton" parent="."]
+margin_left = 568.0
+margin_top = 623.0
+margin_right = 673.0
+margin_bottom = 656.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 15 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Start"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -42.3947
+margin_top = -41.5
+margin_right = 46.6053
+margin_bottom = -21.5
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.407843, 0.443137, 0.478431, 1 )
+text = "start"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
