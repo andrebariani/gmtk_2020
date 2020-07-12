@@ -82,10 +82,10 @@ position = Vector2( 922.009, 296.626 )
 shape = SubResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 653.425
-margin_top = 12.751
-margin_right = 749.425
-margin_bottom = 72.751
+margin_left = 627.94
+margin_top = 24.9393
+margin_right = 723.94
+margin_bottom = 84.9393
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.878431, 0.972549, 0.815686, 1 )
 text = "0"
@@ -113,10 +113,10 @@ __meta__ = {
 }
 
 [node name="Bomb" type="TextureRect" parent="Bombs"]
-margin_left = 13.0
-margin_top = 16.0
-margin_right = 19.0
-margin_bottom = 22.0
+margin_left = 41.8087
+margin_top = 34.8365
+margin_right = 51.8087
+margin_bottom = 44.8365
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 7 )
 __meta__ = {
@@ -124,10 +124,10 @@ __meta__ = {
 }
 
 [node name="Bomb2" type="TextureRect" parent="Bombs"]
-margin_left = 58.7166
-margin_top = 16.2474
-margin_right = 68.7166
-margin_bottom = 26.2474
+margin_left = 87.5253
+margin_top = 35.0839
+margin_right = 97.5253
+margin_bottom = 45.0839
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 7 )
 __meta__ = {
@@ -135,10 +135,10 @@ __meta__ = {
 }
 
 [node name="Bomb3" type="TextureRect" parent="Bombs"]
-margin_left = 106.242
-margin_top = 15.7598
-margin_right = 116.242
-margin_bottom = 25.7598
+margin_left = 135.051
+margin_top = 34.5963
+margin_right = 145.051
+margin_bottom = 44.5963
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 7 )
 __meta__ = {

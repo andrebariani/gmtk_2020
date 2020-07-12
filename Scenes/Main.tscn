@@ -52,12 +52,11 @@ size = 24
 font_data = ExtResource( 7 )
 
 [node name="Main" type="Node2D"]
+scale = Vector2( 0.95, 0.95 )
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/out_of_control = SubResource( 1 )
-
-[node name="GameBoy" parent="." instance=ExtResource( 6 )]
 
 [node name="Game" parent="." instance=ExtResource( 1 )]
 position = Vector2( 31.553, 3.49457 )
@@ -153,55 +152,59 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="GameBoy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 358.806, 374.324 )
+scale = Vector2( 2, 2 )
+
 [node name="Up" parent="." instance=ExtResource( 3 )]
-position = Vector2( 125.238, 588.405 )
+position = Vector2( 136.817, 579.733 )
 sprite = ExtResource( 9 )
 
 [node name="Down" parent="." instance=ExtResource( 3 )]
-position = Vector2( 123.199, 715.591 )
+position = Vector2( 134.778, 706.919 )
 action = 1
 sprite = ExtResource( 10 )
 
 [node name="Left" parent="." instance=ExtResource( 3 )]
-position = Vector2( 51.9171, 655.438 )
+position = Vector2( 63.496, 646.766 )
 action = 2
 sprite = ExtResource( 14 )
 
 [node name="Right" parent="." instance=ExtResource( 3 )]
-position = Vector2( 198.303, 653.703 )
+position = Vector2( 209.882, 645.031 )
 action = 3
 sprite = ExtResource( 12 )
 
 [node name="Bullet" parent="." instance=ExtResource( 3 )]
-position = Vector2( 337.842, 656.467 )
+position = Vector2( 357.737, 639.953 )
 action = 4
 sprite = ExtResource( 13 )
 
 [node name="Explosion" parent="." instance=ExtResource( 3 )]
-position = Vector2( 454.943, 655.831 )
+position = Vector2( 460.269, 639.511 )
 action = 5
 sprite = ExtResource( 11 )
 
 [node name="W" parent="." instance=ExtResource( 2 )]
-position = Vector2( 426.778, 739.994 )
+position = Vector2( 357.537, 734.997 )
 text = "W"
 key = 87
 
 [node name="A" parent="." instance=ExtResource( 2 )]
-position = Vector2( 528.325, 741.581 )
+position = Vector2( 449.068, 735.488 )
 text = "A"
 key = 65
 
 [node name="S" parent="." instance=ExtResource( 2 )]
-position = Vector2( 636.218, 741.581 )
+position = Vector2( 538.293, 735.488 )
 text = "S"
 key = 83
 
 [node name="Start" type="Button" parent="."]
-margin_left = 569.0
-margin_top = 642.0
-margin_right = 678.0
-margin_bottom = 668.0
+margin_left = 571.844
+margin_top = 625.669
+margin_right = 670.844
+margin_bottom = 652.669
 custom_fonts/font = SubResource( 3 )
 text = "START"
 __meta__ = {

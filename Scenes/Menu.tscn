@@ -91,10 +91,13 @@ anims/explosion = SubResource( 2 )
 anims/menu = SubResource( 3 )
 
 [node name="Background" type="ColorRect" parent="."]
-margin_right = 807.0
+margin_left = -21.0
+margin_top = -24.0
+margin_right = 850.0
 margin_bottom = 603.0
 color = Color( 0.878431, 0.972549, 0.815686, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -121,10 +124,10 @@ __meta__ = {
 }
 
 [node name="Play" type="Label" parent="Menu"]
-margin_left = 302.194
+margin_left = 312.0
 margin_top = 289.457
-margin_right = 494.194
-margin_bottom = 337.457
+margin_right = 504.0
+margin_bottom = 349.457
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.0313726, 0.0941176, 0.12549, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -137,9 +140,9 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="Menu/Play"]
 modulate = Color( 0.0313726, 0.0941176, 0.12549, 1 )
 margin_left = -62.475
-margin_top = 6.86768
+margin_top = 8.22803
 margin_right = -40.475
-margin_bottom = 28.8677
+margin_bottom = 30.228
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 __meta__ = {
@@ -147,10 +150,10 @@ __meta__ = {
 }
 
 [node name="Credits" type="Label" parent="Menu"]
-margin_left = 231.499
-margin_top = 366.34
-margin_right = 567.499
-margin_bottom = 414.34
+margin_left = 117.914
+margin_top = 364.568
+margin_right = 692.914
+margin_bottom = 424.568
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.203922, 0.407843, 0.337255, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -174,10 +177,10 @@ __meta__ = {
 }
 
 [node name="Quit" type="Label" parent="Menu"]
-margin_left = 312.761
+margin_left = 312.0
 margin_top = 439.658
-margin_right = 504.761
-margin_bottom = 487.658
+margin_right = 504.0
+margin_bottom = 499.658
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.203922, 0.407843, 0.337255, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -202,8 +205,9 @@ __meta__ = {
 
 [node name="Credits" type="Control" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 7.79205
+margin_right = 793.792
+margin_bottom = 661.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
