@@ -16,8 +16,9 @@
 [ext_resource path="res://Assets/Sprites/GameBoy/Left.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Sprites/GameBoy/GameBoyBG.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Sprites/GameBoy/cursor1600.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Fonts/AldotheApache.ttf" type="DynamicFontData" id=17]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=1]
 resource_name = "bye_manual"
 length = 2.0
 tracks/0/type = "value"
@@ -27,13 +28,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 807.172, 100 ), Vector2( 1500, 100 ) ]
+"values": [ Vector2( 1500, 100 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "how_to_play"
 length = 2.0
 tracks/0/type = "value"
@@ -77,11 +78,8 @@ tracks/2/keys = {
 "method": "show_how_to_play"
 } ]
 }
-[ext_resource path="res://Assets/Sprites/GameBoy/start_press.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Fonts/start_font.tres" type="DynamicFont" id=18]
 
-[sub_resource type="Animation" id=1]
-resource_name = "out_of_control"
+[sub_resource type="Animation" id=3]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Shutdown:modulate")
@@ -108,11 +106,11 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=6]
 size = 32
-font_data = ExtResource( 7 )
+font_data = ExtResource( 17 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 64
 font_data = ExtResource( 5 )
 
@@ -121,9 +119,9 @@ scale = Vector2( 0.95, 0.95 )
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/bye_manual = SubResource( 6 )
-anims/how_to_play = SubResource( 5 )
-anims/out_of_control = SubResource( 1 )
+anims/bye_manual = SubResource( 1 )
+anims/how_to_play = SubResource( 2 )
+anims/out_of_control = SubResource( 3 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 357.851, 374.523 )
@@ -142,13 +140,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="HowToPlay"]
+margin_left = 305.314
+margin_top = 8.95313
+margin_right = 1905.31
+margin_bottom = 1608.95
+rect_scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="HowToPlay"]
-margin_left = 12.3316
-margin_top = 14.1494
-margin_right = 382.332
-margin_bottom = 631.149
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0.0392157, 0.0352941, 0.0352941, 1 )
+margin_left = 14.0883
+margin_top = 14.0
+margin_right = 376.088
+margin_bottom = 631.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "HOW TO PLAY
 
 DRAG AND DROP KEYBOARD KEYS (W, A, S) INTO ACTION SLOTS TO MAP THEM TO THAT CORRESPONDING ACTION.
@@ -162,18 +171,6 @@ THE OBJECTIVE OF THE GAME IS TO GATHER AS MANY STARS AS POSSIBLE BEFORE RUNNING 
 "
 align = 1
 autowrap = true
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="HowToPlay"]
-margin_left = 305.314
-margin_top = 8.95313
-margin_right = 1905.31
-margin_bottom = 1608.95
-rect_scale = Vector2( 0.02, 0.02 )
-texture = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -203,7 +200,7 @@ margin_left = 61.8141
 margin_top = 103.801
 margin_right = 573.814
 margin_bottom = 272.801
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.878431, 0.972549, 0.815686, 1 )
 text = "OUT OF
 CONTROLS"
@@ -218,7 +215,7 @@ margin_left = 132.825
 margin_top = 282.0
 margin_right = 516.825
 margin_bottom = 426.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.878431, 0.972549, 0.815686, 1 )
 text = "SCORE: 50"
 align = 1
@@ -342,7 +339,6 @@ margin_left = -42.3947
 margin_top = -41.5
 margin_right = 46.6053
 margin_bottom = -21.5
-custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.407843, 0.443137, 0.478431, 1 )
 text = "start"
 align = 1
