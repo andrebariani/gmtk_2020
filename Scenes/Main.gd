@@ -9,7 +9,7 @@ func set_current_button(current):
 
 func send_input_system(key, action):
 	$Game.send_input_system(key, action)
-	if $Menu:
+	if is_instance_valid($Menu):
 		$Menu.receive_input(key, action)
 	for button in buttons:
 		get_node(button).set_active(true)

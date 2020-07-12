@@ -67,7 +67,7 @@ func spawn_enemies():
 
 func spawn_enemy(packed):
 	var rand_x = [-16, x_limit+16][randi() % 2]
-	var rand_y = randi() % y_limit
+	var rand_y = 30 + (randi() % (y_limit-30))
 		
 	var _new = packed.instance()
 	add_child(_new)

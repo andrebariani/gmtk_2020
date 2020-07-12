@@ -5,13 +5,18 @@ var option = 0
 
 onready var options = [$Menu/Play, $Menu/Credits, $Menu/Quit, $Credits/Back]
 
+var paused = false
 signal play
 
 func receive_input(key, action):
-	controls[key] = action
+	if !paused:
+		controls[key] = action
 
 
 func _input(event):
+	if paused:
+		return
+	
 	if event is InputEventKey and event.pressed and event.scancode in controls:
 		var input = controls[event.scancode]
 		match(input):
@@ -48,8 +53,9 @@ func set_option(_new):
 
 
 func play():
+	paused = true
 	emit_signal("play")
-	queue_free()
+	visible = false
 
 
 func credits(open):
